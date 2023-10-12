@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlovakJeBest | Clicker</title>
+    <link  rel="stylesheet" href="/css/style.css">
+    <style>
+        .clickimg {
+            width: auto;
+            height: 100%;
+        }
+        .clickimg:hover {
+            cursor: pointer;}
+        
+        .clickimg:active {
+            width: 80%;
+        }
+        p {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+    <p id="click-count">Kliky: <%= clicks %></p>
+    <button id="click-button" type="submit"><img class="clickimg" src="/img/slovak.jpg"></button>
+    </div>
+    <script>
+        const clickButton = document.getElementById('click-button');
+        clickButton.addEventListener('click', () => {
+            fetch('/click', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('click-count').textContent = `Kliky: ${data.clicks}`;
+                });
+        });
+    </script>
+</body>
+</html>
