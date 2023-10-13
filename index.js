@@ -5,31 +5,33 @@ let data = JSON.parse(fs.readFileSync(__dirname + "/data.json"));
 const { rateLimit } = require("express-rate-limit")
 
 const limiter = rateLimit({
-    windowMs: 60 * 1000,
-    limit: 10
+    windowMs: 5 * 60 * 1000, 
+    max: 50
 })
 
+app.use(limiter)
+
 const clickerLimiter = rateLimit({
-    windowMs: 50,
-    limit: 1
+    windowMs: 1000,
+    limit: 15
 })
 
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.get("/", limiter, function (req, res) {
+app.get("/",function (req, res) {
     data = JSON.parse(fs.readFileSync(__dirname + "/data.json"));
     data.visitCount = data.visitCount + 1
     fs.writeFileSync(__dirname + "/data.json", JSON.stringify(data)); 
     res.render(__dirname + "/views/index.ejs", { visitcount: data.visitCount})
 })
 
-app.get("/info", limiter, function (req, res) {
+app.get("/info", function (req, res) {
     res.render(__dirname + "/views/info.ejs")
 })
 
-app.get("/clicker", limiter, function (req, res) {
+app.get("/clicker", function (req, res) {
     res.render(__dirname + "/views/clicker.ejs", { clicks: data.clicks})
 })
 
