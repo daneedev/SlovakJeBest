@@ -42,6 +42,10 @@ app.get("/info", function (req, res) {
     res.render(__dirname + "/views/info.ejs")
 })
 
+app.get("/minesweeper", function (req, res) {
+    res.render(__dirname + "/views/minesweeper.ejs")
+})
+
 app.listen(80,  () => {
     console.log("Server is running on port 80")
 })

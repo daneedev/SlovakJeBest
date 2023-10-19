@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Minesweeper</title>
+    <link href="/css/ss.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="darkModeToggle" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <button onclick="toggleDarkMode()">Změnit theme</button>
+    </div>
+
+    <div class="container">
+        <img alt="Art Image" class="art-image" src="/img/art.png" />
+
+        <div class="flex-container">
+
+            <div id="tutorial">
+                <h2>SlovákSweeper tutorial</h2>
+                <p>
+                    Left clickem odhalíš pole, rightclikem ho označíš Slovákem.
+                </p>
+                <p>
+                    Pokud označíš všechny slováky, vyhraješ
+                </p>
+
+                <img style="height: 75%; width: 75%;" src="/img/vlajka.png" alt="">
+                <br>V0.9 (Beta)
+            </div>
+
+            <div id="board"></div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
+
+<div style="margin: 10%;" class="spinning-text">Designed by StuckInVim</div>

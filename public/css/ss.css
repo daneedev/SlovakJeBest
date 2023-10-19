@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    gap: 2px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.cell.mine.revealed {
+    background-image: url('/img/mina.png');
+    background-size: cover;
+}
+
+.cell.clicked {
+    background-color: #eee;
+}
+
+.cell.flagged {
+    background-image: url('/img/vlajka.png');
+    background-size: cover;
+}
+
+.art-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.art-image {
+    width: 300px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.dark-mode {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+body.dark-mode .cell {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+body.dark-mode .cell.clicked {
+    background-color: #444;
+}
+
+body,
+.cell,
+.cell.clicked {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#tutorial {
+    width: 250px;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+body.dark-mode #tutorial {
+    background-color: #333;
+    border-color: #555;
+    color: #f5f5f5;
+}
+
+#tutorial h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+#tutorial p,
+#tutorial ul {
+    font-size: 0.9em;
+}
+
+#tutorial ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+#tutorial {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.spinning-text {
+    font-size: 1.2em;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
