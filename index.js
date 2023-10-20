@@ -24,12 +24,11 @@ app.post('/click', clickerLimiter, (req, res) => {
     res.json({ clicks: data.clicks });
   });
 
+app.use(express.static(__dirname + '/public'));
 
 app.use(limiter)
 
 app.set('view engine', 'ejs');
-
-app.use(express.static(__dirname + '/public'));
 
 app.get("/",function (req, res) {
     data = JSON.parse(fs.readFileSync(__dirname + "/data.json"));
